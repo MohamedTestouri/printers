@@ -7,17 +7,11 @@ const Client = require("../models/client");
 
 /* Client functions */
 exports.showClient = (req, res) => {
-    Client.find({}).then((clients) => {
-        res.render("Client", { clients });
+    Client.find({}).then((client) => {
+        return res.status(200).json(client)
     }).catch((error) => {
         return res.status(500).json(error);
     });
-};
-exports.addForm = (req, res) => {
-    res.render("addClient");
-};
-exports.editForm = (req, res) => {
-    res.render("editClient", { id: req.params.id });
 };
 
 exports.addClient = (req, res) => {
@@ -33,7 +27,7 @@ exports.addClient = (req, res) => {
         min_billing: req.body.min_billing,
     });
     client.save().then((result) => {
-        res.redirect("/client/show");
+        return res.status(200).json(result);
     }).catch((error) => {
         return res.status(error.code).json({ error: error.message });
     });
@@ -41,7 +35,8 @@ exports.addClient = (req, res) => {
 
 exports.editClient = (req, res) => {
 
-    Client.findByIdAndUpdate(req.params.id, {
+    Client.findByIdAndUpdate(req.body._id, {
+        _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         contractDate: req.body.contractDate,
         contractDuration: req.body.constDuration,
@@ -51,7 +46,7 @@ exports.editClient = (req, res) => {
         costA3Color: req.body.costA3Color,
         min_billing: req.body.min_billing,
     }).then((result) => {
-        res.redirect("/client/show");
+        return res.status(200).json(result);
     }).catch((error) => {
         return res.status(error.code).json(error);
     });
@@ -60,8 +55,8 @@ exports.editClient = (req, res) => {
 };
 
 exports.removeClient = (req, res) => {
-    Client.findByIdAndDelete(req.params.id).then((result) => {
-        res.redirect("/client/show");
+    Client.findByIdAndDelete(req.body.id).then((result) => {
+        return res.status(200).json(result);
     }).catch((error) => {
         return res.status(error.code).json(error);
     });

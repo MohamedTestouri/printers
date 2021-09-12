@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const {addClient, editClient, removeClient, showClient } = require('../functions/clientFunction');
-const {addFacture, editFacture, removeFacture, showFacture } = require('../functions/clientFunction');
-const {addPrinter, editPrinter, removePrinter, showPrinter } = require('../functions/clientFunction');
+const { addClient, editClient, removeClient, showClient, addForm, editForm } = require('../functions/clientFunction');
+const { addFacture, editFacture, removeFacture, showFacture } = require('../functions/clientFunction');
+const { addPrinter, editPrinter, removePrinter, showPrinter } = require('../functions/clientFunction');
 
 /* Client CRUD */
 router.get('/show', showClient);
+router.get('/new', addForm);
+router.get('/edit/:id', editForm);
 router.post('/add', addClient);
-router.patch('/edit', editClient);
-router.delete('/remove', removeClient);
+router.patch('/edit/:id', editClient);
+router.delete('/remove/:id', removeClient);
 
 /* Facture CRUD */
 router.get('/facture/show', showFacture);
