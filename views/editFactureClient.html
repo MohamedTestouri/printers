@@ -1,3 +1,4 @@
+
 <!--
 =========================================================
 Material Dashboard - v2.1.2
@@ -18,7 +19,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Clients
+        Show Client
     </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -44,7 +45,7 @@ The above copyright notice and this permission notice shall be included in all c
                         <p>Printers</p>
                     </a>
                 </li>
-                <li class="nav-item  active">
+                <li class="nav-item active">
                     <a class="nav-link" href="./Clients.html">
                         <i class="material-icons">person</i>
                         <p>Clients</p>
@@ -64,24 +65,7 @@ The above copyright notice and this permission notice shall be included in all c
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:;">Clients</a>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="navbar-toggler-icon icon-bar"></span>
-                    <span class="navbar-toggler-icon icon-bar"></span>
-                    <span class="navbar-toggler-icon icon-bar"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end">
-                    <form class="navbar-form">
-                        <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
-                                <div class="ripple-container"></div>
-                            </button>
-                        </div>
-                    </form>
+                    <a class="navbar-brand" href="javascript:;">Show Client</a>
                 </div>
             </div>
         </nav>
@@ -92,40 +76,33 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header card-header-primary">
-                                <h4 class="card-title ">Client Table</h4>
-                                <p class="card-category"> Here is a subtitle for this table</p>
+                                <h4 class="card-title">Edit Facture</h4>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class=" text-primary">
-                                        <th>
-                                            Nom
-                                        </th>
-                                        <th>
-                                            Date de Contrat
-                                        </th>
-                                        <th>
-                                            Durée de Contrat
-                                        </th>
-                                        <th>
-                                            min_billing
-                                        </th>
-                                        <th>
-
-                                        </th>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Total</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Date</label>
+                                                <input type="date" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">File</label>
+                                                <input type="file" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary pull-right">Edit Facture</button>
+                                    <div class="clearfix"></div>
+                                </form>
                             </div>
                         </div>
                     </div>

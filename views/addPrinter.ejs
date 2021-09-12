@@ -68,24 +68,6 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="navbar-wrapper">
                         <a class="navbar-brand" href="javascript:;">Printers</a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <form class="navbar-form">
-                            <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
-                                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                    <i class="material-icons">search</i>
-                                    <div class="ripple-container"></div>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </nav>
             <!-- End Navbar -->
@@ -95,43 +77,39 @@ The above copyright notice and this permission notice shall be included in all c
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Printer List</h4>
-                                    <p class="card-category"> Here is a subtitle for </p>
+                                    <h4 class="card-title">Add Printer</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead class=" text-primary">
-                                                <th>
-                                                    Marque
-                                                </th>
-                                                <th>
-                                                    Modèle
-                                                </th>
-                                                <th>
-                                                    Type
-                                                </th>
-                                                <th>
-                                                    Papier
-                                                </th>
-                                                <th>
-
-                                                </th>
-                                            </thead>
-                                            <tbody>
-                                                <% printers.comments.forEach(function(printer){ %>
-                                                    <tr>
-                                                        <!-- printers goes here -->
-                                                        <td><%=printer.type%></td>
-                                                        <td><%=printer.model%></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <% } %>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <form method="POST" action="/printer/add">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Marque</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Modèle</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Type</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Papier</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary pull-right">Add Printer</button>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
