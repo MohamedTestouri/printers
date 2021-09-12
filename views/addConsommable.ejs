@@ -18,7 +18,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="icon" type="image/png" href="/stylesheets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Printers
+        Consommable
     </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -40,7 +40,7 @@ The above copyright notice and this permission notice shall be included in all c
                 </a></div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="nav-item active ">
+                    <li class="nav-item ">
                         <a class="nav-link" href="/printer/show">
                             <i class="material-icons">library_books</i>
                             <p>Printers</p>
@@ -52,7 +52,7 @@ The above copyright notice and this permission notice shall be included in all c
                             <p>Clients</p>
                         </a>
                     </li>
-                    <li class="nav-item ">
+                    <li class="nav-item active">
                         <a class="nav-link" href="/consommable/show">
                             <i class="material-icons">bubble_chart</i>
                             <p>Consommable</p>
@@ -66,7 +66,7 @@ The above copyright notice and this permission notice shall be included in all c
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="javascript:;">Printers</a>
+                        <a class="navbar-brand" href="javascript:;">Consommable</a>
                     </div>
                 </div>
             </nav>
@@ -77,21 +77,15 @@ The above copyright notice and this permission notice shall be included in all c
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Add Printer</h4>
+                                    <h4 class="card-title">Add Consommable</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form method="POST" action="/printer/add">
+                                    <form method="POST" action="/consommable/add">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Marque</label>
-                                                    <input type="text" class="form-control" name="marque">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Modèle</label>
-                                                    <input type="text" class="form-control" name="models">
+                                                    <label class="bmd-label-floating">N°Article</label>
+                                                    <input type="text" class="form-control" name="articleNumber">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -102,12 +96,31 @@ The above copyright notice and this permission notice shall be included in all c
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Papier</label>
-                                                    <input type="text" class="form-control" name="paper">
+                                                    <label class="bmd-label-floating">Type de Couleur</label>
+                                                    <input type="text" class="form-control" name="colorType">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Pages</label>
+                                                    <input type="text" class="form-control" name="pageSum">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Pourcentage</label>
+                                                    <input type="text" class="form-control" name="percent">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Message</label>
+                                                    <input type="text" class="form-control" name="message">
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary pull-right">Add Printer</button>
+                                        <button type="submit" class="btn btn-primary pull-right">Add
+                                            Consommable</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

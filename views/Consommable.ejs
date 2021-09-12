@@ -29,6 +29,8 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="/stylesheets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/stylesheets/demo/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body class="">
@@ -41,19 +43,19 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item  ">
-                        <a class="nav-link" href="./Printers.html">
+                        <a class="nav-link" href="/printer/show">
                             <i class="material-icons">library_books</i>
                             <p>Printers</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="./Clients.html">
+                        <a class="nav-link" href="/client/show">
                             <i class="material-icons">person</i>
                             <p>Clients</p>
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="./Consommable.html">
+                        <a class="nav-link" href="/consommable/show">
                             <i class="material-icons">bubble_chart</i>
                             <p>Consommable</p>
                         </a>
@@ -125,17 +127,62 @@ The above copyright notice and this permission notice shall be included in all c
                                                 </th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
+                                                <% consommables.forEach(function(consommable){ %>
+                                                    <tr>
+                                                        <!-- printers goes here -->
+                                                        <td>
+                                                            <%=consommable.articleNumber%>
+                                                        </td>
+                                                        <td>
+                                                            <%=consommable.type%>
+                                                        </td>
+                                                        <td>
+                                                            <%=consommable.colorType%>
+                                                        </td>
+                                                        <td>
+                                                            <%=consommable.pageSum%>
+                                                        </td>
+                                                        <td>
+                                                            <%=consommable.percent%>
+                                                        </td>
+                                                        <td>
+                                                            <%=consommable.message%>
+                                                        </td>
+                                                        <td class="td-actions text-right">
+                                                            <!-- add path to the edit here -->
+                                                            <!--button edit-->
+                                                            <form action="/consommable/edit/<%=consommable._id%>"
+                                                                method="GET">
+                                                                <button rel="tooltip" title=""
+                                                                    class="btn btn-primary btn-link btn-sm"
+                                                                    data-original-title="Edit"
+                                                                    aria-describedby="tooltip492411">
+                                                                    <i class="material-icons">edit</i>
+                                                                    <div class="ripple-container"></div>
+                                                                </button>
+                                                            </form>
+
+                                                            <!--button delete-->
+                                                            <form
+                                                                action="/consommable/remove/<%=consommable._id%>?_method=DELETE"
+                                                                method="POST">
+                                                                <button rel="tooltip" title=""
+                                                                    class="btn btn-danger btn-link btn-sm"
+                                                                    data-original-title="Remove"
+                                                                    aria-describedby="tooltip393368">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </form>
+
+                                                        </td>
+
+                                                    </tr>
+                                                    <% }); %>
                                             </tbody>
                                         </table>
+                                        <a href="/consommable/new">
+                                            <i class="fas fa-plus-circle" style="font-size:350%;color: blueviolet;"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
