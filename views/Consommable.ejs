@@ -18,7 +18,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="icon" type="image/png" href="/stylesheets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Printers
+        Consommable
     </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -29,9 +29,6 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="/stylesheets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/stylesheets/demo/demo.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
 </head>
 
 <body class="">
@@ -43,20 +40,20 @@ The above copyright notice and this permission notice shall be included in all c
                 </a></div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="nav-item active ">
-                        <a class="nav-link" href="/printer/show">
+                    <li class="nav-item  ">
+                        <a class="nav-link" href="./Printers.html">
                             <i class="material-icons">library_books</i>
                             <p>Printers</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="/Client/show">
+                        <a class="nav-link" href="./Clients.html">
                             <i class="material-icons">person</i>
                             <p>Clients</p>
                         </a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="/Consommable/show">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./Consommable.html">
                             <i class="material-icons">bubble_chart</i>
                             <p>Consommable</p>
                         </a>
@@ -69,7 +66,7 @@ The above copyright notice and this permission notice shall be included in all c
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="javascript:;">Printers</a>
+                        <a class="navbar-brand" href="javascript:;">Consommable</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -98,81 +95,47 @@ The above copyright notice and this permission notice shall be included in all c
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Printer List</h4>
-                                    <p class="card-category"> Here is a subtitle for </p>
+                                    <h4 class="card-title ">Consommable Table</h4>
+                                    <p class="card-category"> Here is a subtitle for this table</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead class=" text-primary">
                                                 <th>
-                                                    Marque
-                                                </th>
-                                                <th>
-                                                    Modèle
+                                                    N°Article
                                                 </th>
                                                 <th>
                                                     Type
                                                 </th>
                                                 <th>
-                                                    Papier
+                                                    Type de Couleur
+                                                </th>
+                                                <th>
+                                                    Pages
+                                                </th>
+                                                <th>
+                                                    Pourcentage
+                                                </th>
+                                                <th>
+                                                    Message
                                                 </th>
                                                 <th>
 
                                                 </th>
                                             </thead>
                                             <tbody>
-                                                <% printers.forEach(function(printer){ %>
-                                                    <tr>
-                                                        <!-- printers goes here -->
-                                                        <td>
-                                                            <%=printer.type%>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.models%>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.marque%>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.paper%>
-                                                        </td>
-                                                        <td class="td-actions text-right">
-                                                            <!-- add path to the edit here -->
-                                                            <!--button edit-->
-                                                            <form action="/printer/edit/<%=printer._id%>" method="GET">
-                                                                <button rel="tooltip" title=""
-                                                                    class="btn btn-primary btn-link btn-sm"
-                                                                    data-original-title="Edit"
-                                                                    aria-describedby="tooltip492411">
-                                                                    <i class="material-icons">edit</i>
-                                                                    <div class="ripple-container"></div>
-                                                                </button>
-                                                            </form>
-
-                                                            <!--button delete-->
-                                                            <form
-                                                                action="/printer/remove/<%=printer._id%>?_method=DELETE"
-                                                                method="POST">
-                                                                <button rel="tooltip" title=""
-                                                                    class="btn btn-danger btn-link btn-sm"
-                                                                    data-original-title="Remove"
-                                                                    aria-describedby="tooltip393368">
-                                                                    <i class="material-icons">close</i>
-                                                                </button>
-                                                            </form>
-
-                                                        </td>
-
-                                                    </tr>
-                                                    <% }); %>
-
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
                                             </tbody>
-
                                         </table>
-                                        <a href="/printer/new">
-                                            <i class="fas fa-plus-circle" style="font-size:350%;color: blueviolet;"></i>
-                                        </a>
                                     </div>
                                 </div>
                             </div>

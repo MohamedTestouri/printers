@@ -29,9 +29,6 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="/stylesheets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/stylesheets/demo/demo.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
 </head>
 
 <body class="">
@@ -44,19 +41,19 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item active ">
-                        <a class="nav-link" href="/printer/show">
+                        <a class="nav-link" href="./Printers.html">
                             <i class="material-icons">library_books</i>
                             <p>Printers</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="/Client/show">
+                        <a class="nav-link" href="./Clients.html">
                             <i class="material-icons">person</i>
                             <p>Clients</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="/Consommable/show">
+                        <a class="nav-link" href="./Consommable.html">
                             <i class="material-icons">bubble_chart</i>
                             <p>Consommable</p>
                         </a>
@@ -71,24 +68,6 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="navbar-wrapper">
                         <a class="navbar-brand" href="javascript:;">Printers</a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <form class="navbar-form">
-                            <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
-                                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                    <i class="material-icons">search</i>
-                                    <div class="ripple-container"></div>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </nav>
             <!-- End Navbar -->
@@ -98,82 +77,39 @@ The above copyright notice and this permission notice shall be included in all c
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Printer List</h4>
-                                    <p class="card-category"> Here is a subtitle for </p>
+                                    <h4 class="card-title">Add Printer</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead class=" text-primary">
-                                                <th>
-                                                    Marque
-                                                </th>
-                                                <th>
-                                                    Modèle
-                                                </th>
-                                                <th>
-                                                    Type
-                                                </th>
-                                                <th>
-                                                    Papier
-                                                </th>
-                                                <th>
-
-                                                </th>
-                                            </thead>
-                                            <tbody>
-                                                <% printers.forEach(function(printer){ %>
-                                                    <tr>
-                                                        <!-- printers goes here -->
-                                                        <td>
-                                                            <%=printer.type%>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.models%>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.marque%>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.paper%>
-                                                        </td>
-                                                        <td class="td-actions text-right">
-                                                            <!-- add path to the edit here -->
-                                                            <!--button edit-->
-                                                            <form action="/printer/edit/<%=printer._id%>" method="GET">
-                                                                <button rel="tooltip" title=""
-                                                                    class="btn btn-primary btn-link btn-sm"
-                                                                    data-original-title="Edit"
-                                                                    aria-describedby="tooltip492411">
-                                                                    <i class="material-icons">edit</i>
-                                                                    <div class="ripple-container"></div>
-                                                                </button>
-                                                            </form>
-
-                                                            <!--button delete-->
-                                                            <form
-                                                                action="/printer/remove/<%=printer._id%>?_method=DELETE"
-                                                                method="POST">
-                                                                <button rel="tooltip" title=""
-                                                                    class="btn btn-danger btn-link btn-sm"
-                                                                    data-original-title="Remove"
-                                                                    aria-describedby="tooltip393368">
-                                                                    <i class="material-icons">close</i>
-                                                                </button>
-                                                            </form>
-
-                                                        </td>
-
-                                                    </tr>
-                                                    <% }); %>
-
-                                            </tbody>
-
-                                        </table>
-                                        <a href="/printer/new">
-                                            <i class="fas fa-plus-circle" style="font-size:350%;color: blueviolet;"></i>
-                                        </a>
-                                    </div>
+                                    <form method="POST" action="/printer/edit/<%=id%>?_method=PATCH">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Marque</label>
+                                                    <input type="text" class="form-control" name="marque">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Modèle</label>
+                                                    <input type="text" class="form-control" name="models">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Type</label>
+                                                    <input type="text" class="form-control" name="type">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Papier</label>
+                                                    <input type="text" class="form-control" name="paper">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary pull-right">Add Printer</button>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

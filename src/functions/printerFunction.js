@@ -13,8 +13,12 @@ exports.show = (req, res) => {
         return res.status(500).json({ message: error.message });
     })
 };
-exports.newPrinter = (req, res) => {
+exports.addForm = (req, res) => {
     res.render('addPrinter');
+
+};
+exports.editForm = (req, res) => {
+    res.render('editPrinter', { id: req.params.id });
 
 };
 exports.add = (req, res) => {
@@ -33,15 +37,13 @@ exports.add = (req, res) => {
 };
 
 exports.edit = (req, res) => {
-    Printer.findByIdAndUpdate(req.body.id, {
-        articleNumber: req.body.articNumber,
+    Printer.findByIdAndUpdate(req.params.id, {
         type: req.body.type,
-        colorType: req.body.colorType,
-        pageSum: req.body.pageSum,
-        percent: req.body.percent,
-        message: req.body.message,
+        models: req.body.models,
+        marque: req.body.marque,
+        paper: req.body.paper,
     }).then((result) => {
-        return res.status(200).json(result);
+        res.redirect('/printer/show');
     }).catch((error) => {
         return res.status(error.code).json({ error: error.message });
     });
