@@ -119,16 +119,46 @@ The above copyright notice and this permission notice shall be included in all c
                                                 </th>
                                             </thead>
                                             <tbody>
-                                                <% printers.comments.forEach(function(printer){ %>
+                                                <% printers.forEach(function(printer){ %>
                                                     <tr>
                                                         <!-- printers goes here -->
-                                                        <td><%=printer.type%></td>
-                                                        <td><%=printer.model%></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>
+                                                            <%=printer.type%>
+                                                        </td>
+                                                        <td>
+                                                            <%=printer.models%>
+                                                        </td>
+                                                        <td>
+                                                            <%=printer.marque%>
+                                                        </td>
+                                                        <td>
+                                                            <%=printer.paper%>
+                                                        </td>
+                                                        <td class="td-actions text-right">
+                                                            <!-- add path to the edit here -->
+                                                            <!--button edit-->
+                                                            <a href="editClient.html" rel="tooltip" title=""
+                                                                class="btn btn-primary btn-link btn-sm"
+                                                                data-original-title="Edit"
+                                                                aria-describedby="tooltip492411">
+                                                                <i class="material-icons">edit</i>
+                                                                <div class="ripple-container"></div>
+                                                            </a>
+                                                            <!--button delete-->
+                                                            <form
+                                                                action="/printer/remove/<%=printer._id%>?_method=DELETE"
+                                                                method="POST">
+                                                                <button rel="tooltip" title=""
+                                                                    class="btn btn-danger btn-link btn-sm"
+                                                                    data-original-title="Remove"
+                                                                    aria-describedby="tooltip393368">
+                                                                    <i class="material-icons">close</i>
+                                                                </button>
+                                                            </form>
+
+                                                        </td>
                                                     </tr>
-                                                    <% } %>
+                                                    <% }); %>
                                             </tbody>
                                         </table>
                                     </div>

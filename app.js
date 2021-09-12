@@ -9,6 +9,7 @@ methodeOverride = require("method-override");
 require('dotenv').config();
 
 /***** UTILS CONFIG *****/
+app.use(methodeOverride("_method"));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -16,7 +17,7 @@ app.use(cors());
 app.options('*', cors());
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
-app.use(methodeOverride("_method"));
+
 
 /***** DATABASE CONNECTION *****/
 mongoose.connect("mongodb://localhost:27017/printer");
@@ -38,7 +39,7 @@ app.use('/printer', printerRoutes);
 app.use('/consommable', consommableRoutes);
 
 //The 404 Route (ALWAYS Keep this as the last route)
-app.get('*', function (req, res) {
-    res.status(404).send('what???');
-});
+// app.get('*', function (req, res) {
+//     res.status(404).send('what???');
+// });
 module.exports = app;

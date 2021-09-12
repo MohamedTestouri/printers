@@ -7,8 +7,8 @@ const { render } = require("../../app");
 const Printer = require("../models/printer");
 
 exports.show = (req, res) => {
-    Printer.find({}).then((printer) => {
-        res.render('Printers', { printer: printer });
+    Printer.find({}).then((printers) => {
+        res.render('Printers', { printers: printers });
     }).catch((error) => {
         return res.status(500).json({ message: error.message });
     })
@@ -25,8 +25,8 @@ exports.add = (req, res) => {
         marque: req.body.marque,
         paper: req.body.paper,
     });
-    printer.save().then((result) => {
-        res.redirect('/printer/show',{printers:printers});
+    printer.save().then((printers) => {
+        res.redirect('/printer/show');
     }).catch((error) => {
         return res.status(error.code).json({ error: error.message });
     });
@@ -48,8 +48,8 @@ exports.edit = (req, res) => {
 };
 
 exports.remove = (req, res) => {
-    Printer.findByIdAndRemove(req.body.id).then((result) => {
-        return res.status(200).json(result);
+    Printer.findByIdAndRemove(req.params.id).then((result) => {
+        res.redirect('/printer/show')
     }).catch((error) => {
         return res.status(error.code).json({ error: error.message });
     })

@@ -7,6 +7,6 @@ router.get('/show', show);
 router.post('/add', add);
 router.get('/new', newPrinter);
 router.patch('/edit', edit);
-router.delete('/remove', remove);
+router.delete('/remove/:id', remove);
 
 module.exports = router;
