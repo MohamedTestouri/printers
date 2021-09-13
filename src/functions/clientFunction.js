@@ -55,8 +55,6 @@ exports.editClient = (req, res) => {
     }).catch((error) => {
         return res.status(error.code).json(error);
     });
-
-
 };
 
 exports.removeClient = (req, res) => {
@@ -69,13 +67,26 @@ exports.removeClient = (req, res) => {
 
 /* Facture functions */
 exports.showFacture = (req, res) => {
+    Client.find({ _id: req.params.id }).then((client) => {
+        const clients = client[0];
+        res.render("FactureClient", { clients });
+    }).catch((error) => {
+        return res.status(500).json({ error: error.message });
+    });
+
 
 };
-
+exports.addFactureForm = (req, res) => {
+    res.render("addFactureClient", { id: req.params.id });
+};
 exports.addFacture = (req, res) => {
 };
 
+exports.editFactureForm = (req, res) => {
+    res.render("editFactureClient", { id: req.params.id, facture_id: req.params.facture_id });
+};
 exports.editFacture = (req, res) => {
+
 };
 
 exports.removeFacture = (req, res) => {
@@ -83,6 +94,12 @@ exports.removeFacture = (req, res) => {
 
 /* Printer functions */
 exports.showPrinter = (req, res) => {
+    Client.find({ _id: req.params.id }).then((client) => {
+        const clients = client[0];
+        res.render("PrinterClient", { clients });
+    }).catch((error) => {
+        return res.status(500).json({ error: error.message });
+    });
 };
 
 exports.addPrinter = (req, res) => {
