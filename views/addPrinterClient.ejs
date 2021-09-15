@@ -80,83 +80,83 @@ The above copyright notice and this permission notice shall be included in all c
                                     <h4 class="card-title">Add Printer</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/client/facture/edit/<%=id %>/<%=printer_id %>" method="POST">
+                                    <form action="/client/printer/add/<%=id %>" method="POST">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">N°Série</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="idPrinter">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">N°Article</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="serialNumber">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">@IP</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="articleNumber">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Location</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="ip">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Etat</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="location">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Date d'installation</label>
-                                                    <input type="date" class="form-control">
+                                                    <input type="date" class="form-control" name="state">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Date de Creation</label>
-                                                    <input type="date" class="form-control">
+                                                    <input type="date" class="form-control" name="installationDate">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Nombre de papier</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="paperSum">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">currentA4Black</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="currentA4Black">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">currentA4Color</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="currentA4Color">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">currentA3Black</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" name="currentA3Black">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">currentA3Color</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" name="currentA3Color">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percBlack</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" name="percBlack">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percCyan</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" name="percCyan">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percMagenta</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" name="percMagenta">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percYellow</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" name="percYellow">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percCyanDrum</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" name="percCyanDrum">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percMagentaDrum</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" name="percMagentaDrum">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percYellowDrum</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" name="percYellowDrum">
                                                     </div>
                                                 </div>
                                             </div>

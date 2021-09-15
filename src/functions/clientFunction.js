@@ -80,7 +80,6 @@ exports.addFactureForm = (req, res) => {
     res.render("addFactureClient", { id: req.params.id });
 };
 exports.addFacture = (req, res) => {
-    const id = req.params.id;
     Client.update({ _id: req.params.id }, {
         $addToSet: {
             facture: [{
@@ -102,7 +101,7 @@ exports.editFactureForm = (req, res) => {
     res.render("editFactureClient", { id: req.params.id, facture_id: req.params.facture_id });
 };
 exports.editFacture = (req, res) => {
-    const id = req.params.id;
+
     Client.update({ _id: req.params.id, "facture._id": req.body.facture_id },
         {
             $set: {
@@ -140,13 +139,94 @@ exports.showPrinter = (req, res) => {
         return res.status(500).json({ error: error.message });
     });
 };
+exports.addPrinterForm = (req, res) => {
+    res.render("addPrinterClient", { id: req.params.id });
+};
 
 exports.addPrinter = (req, res) => {
+    Client.update({ _id: req.params.id }, {
+        $addToSet: {
+            printer: [{
+                _id: mongoose.Types.ObjectId(),
+                idPrinter: req.body.idPrinter,
+                serialNumber: req.body.serialNumber,
+                articleNumber: req.body.articleNumber,
+                ip: req.body.ip,
+                location: req.body.location,
+                state: req.body.state,
+                installationDate: req.body.installationDate,
+                paperSum: req.body.paperSum,
+                currentA4Black: req.body.currentA4Black,
+                currentA4Color: req.body.currentA4Color,
+                currentA3Black: req.body.currentA3Black,
+                currentA3Color: req.body.currentA3Color,
+                creationDate: req.body.creationDate,
+                percBlack: req.body.percBlack,
+                percCyan: req.body.percCyan,
+                percMagenta: req.body.percMagenta,
+                percYellow: req.body.percYellow,
+                percBlackDrum: req.body.percBlackDrum,
+                percCyanDrum: req.body.percCyanDrum,
+                percYellowDrum: req.body.percYellowDrum,
+                percMagentaDrum: req.body.percMagentaDrum,
+            }]
+        }
+    }).then((result) => {
+
+        res.redirect('/client/printer/show/' + req.params.id);
+    }).catch((error) => {
+        return res.status(500).json({ error: error.message });
+    });
+
+
+};
+exports.editPrinterForm = (req, res) => {
+    res.render("editPrinterClient", { id: req.params.id, printer_id: req.params.printer_id });
 };
 
 exports.editPrinter = (req, res) => {
+    Client.update({ _id: req.params.id, "printer._id": req.params.printer_id },
+        {
+            $set: {
+                "printer.$.idPrinter": req.body.idPrinter,
+                "printer.$.serialNumber": req.body.serialNumber,
+                "printer.$.articleNumber": req.body.articleNumber,
+                "printer.$.ip": req.body.ip,
+                "printer.$.location": req.body.location,
+                "printer.$.state": req.body.state,
+                "printer.$.installationDate": req.body.installationDate,
+                "printer.$.paperSum": req.body.paperSum,
+                "printer.$.currentA4Black": req.body.currentA4Black,
+                "printer.$.currentA4Color": req.body.currentA4Color,
+                "printer.$.currentA3Black": req.body.currentA3Black,
+                "printer.$.currentA3Color": req.body.currentA3Color,
+                "printer.$.creationDate": req.body.creationDate,
+                "printer.$.percBlack": req.body.percBlack,
+                "printer.$.percCyan": req.body.percCyan,
+                "printer.$.percMagenta": req.body.percMagenta,
+                "printer.$.percYellow": req.body.percYellow,
+                "printer.$.percBlackDrum": req.body.percBlackDrum,
+                "printer.$.percCyanDrum": req.body.percCyanDrum,
+                "printer.$.percYellowDrum": req.body.percYellowDrum,
+                "printer.$.percMagentaDrum": req.body.percMagentaDrum,
+            }
+        }
+    ).then((result) => {
+        res.redirect("/client/printer/show/" + req.params.id);
+    }).catch((error) => {
+        return res.status(500).json({ error: error.message });
+    });
 };
 
 exports.removePrinter = (req, res) => {
+    Client.update({ _id: req.params.id }, {
+        $pull: {
+            printer: { _id: req.params.printer_id }
+        }
+    }).then((result) => {
+        res.redirect("/client/printer/show/" + req.params.id);
+    }).catch((error) => {
+        return res.status(500).json({ error: error.message });
+    });
 };
 

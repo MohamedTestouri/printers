@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { addClient, editClient, removeClient, showClient, addForm, editForm } = require('../functions/clientFunction');
 const { addFacture, editFacture, removeFacture, showFacture, addFactureForm, editFactureForm } = require('../functions/clientFunction');
-const { addPrinter, editPrinter, removePrinter, showPrinter } = require('../functions/clientFunction');
+const { addPrinter, editPrinter, removePrinter, showPrinter, addPrinterForm, editPrinterForm } = require('../functions/clientFunction');
 
 /* Client CRUD */
 router.get('/show', showClient);
@@ -23,8 +23,10 @@ router.delete('/facture/remove/:id/:facture_id', removeFacture);
 
 /* Printer CRUD */
 router.get('/printer/show/:id', showPrinter);
-router.post('/printer/add', addPrinter);
-router.patch('/printer/edit', editPrinter);
-router.delete('/printer/remove', removePrinter);
+router.get('/printer/add/:id', addPrinterForm);
+router.post('/printer/add/:id', addPrinter);
+router.get('/printer/edit/:id/:printer_id', editPrinterForm);
+router.patch('/printer/edit/:id/:printer_id', editPrinter);
+router.delete('/printer/remove/:id/:printer_id', removePrinter);
 
 module.exports = router;

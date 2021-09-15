@@ -29,8 +29,6 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="/stylesheets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/stylesheets/demo/demo.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body class="">
@@ -77,144 +75,96 @@ The above copyright notice and this permission notice shall be included in all c
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-primary pull-center"
-                                href="/client/facture/show/<%=clients._id%>">Factures</a>
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Printers Table</h4>
-                                    <p class="card-category"> Here is a subtitle for this table</p>
+                                    <h4 class="card-title">Edit Printer</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead class=" text-primary">
-                                                <th>
-                                                    Printer
-                                                </th>
-                                                <th>
-                                                    N°Série
-                                                </th>
-                                                <th>
-                                                    N°Article
-                                                </th>
-
-                                                <th>
-                                                    Etat
-                                                </th>
-                                                <th>
-                                                    Nombre de papier
-                                                </th>
-                                                <th>@IP</th>
-                                                <th>
-                                                    Date d'installation
-                                                </th>
-                                                <th>
-
-                                                </th>
-
-                                            </thead>
-                                            <tbody>
-                                                <% clients.printer.forEach(function(printer){ %>
-                                                    <tr>
-                                                        <td>
-                                                            <%=printer.idPrinter %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.serialNumber %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.articleNumber%>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.ip %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.location %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.state %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.installationDate %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.paperSum %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.currentA4Black %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.currentA4Color %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.currentA3Black %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.currentA3Color %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.creationDate %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percBlack %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percMagenta %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percYellow %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percBlackDrum %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percCyanDrum %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percYellowDrum %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percMagentaDrum %>
-                                                        </td>
-                                                        <td class="td-actions text-right">
-
-                                                            <!-- add path to the edit here -->
-                                                            <!--button edit-->
-                                                            <form
-                                                                action="/client/printer/edit/<%=clients._id%>/<%=printer._id%>"
-                                                                method="GET">
-                                                                <button rel="tooltip" title=""
-                                                                    class="btn btn-primary btn-link btn-sm"
-                                                                    data-original-title="Edit"
-                                                                    aria-describedby="tooltip492411">
-                                                                    <i class="material-icons">edit</i>
-                                                                    <div class="ripple-container"></div>
-                                                                </button>
-                                                            </form>
-
-                                                            <!--button delete-->
-                                                            <form
-                                                                action="/client/printer/remove/<%=clients._id%>/<%=printer._id %>?_method=DELETE"
-                                                                method="POST">
-                                                                <button rel="tooltip" title=""
-                                                                    class="btn btn-danger btn-link btn-sm"
-                                                                    data-original-title="Remove"
-                                                                    aria-describedby="tooltip393368">
-                                                                    <i class="material-icons">close</i>
-                                                                </button>
-                                                            </form>
-
-                                                        </td>
-
-                                                    </tr>
-                                                    <% }); %>
-                                            </tbody>
-
-                                        </table>
-                                        <a href="/client/printer/add/<%=clients._id %>">
-                                            <i class="fas fa-plus-circle" style="font-size:350%;color: blueviolet;"></i>
-                                        </a>
-                                    </div>
+                                    <form action="/client/printer/edit/<%=id %>/<%=printer_id %>?_method=PATCH"
+                                        method="POST">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">N°Série</label>
+                                                    <input type="text" class="form-control" name="idPrinter">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">N°Article</label>
+                                                    <input type="text" class="form-control" name="serialNumber">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@IP</label>
+                                                    <input type="text" class="form-control" name="articleNumber">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Location</label>
+                                                    <input type="text" class="form-control" name="ip">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Etat</label>
+                                                    <input type="text" class="form-control" name="location">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Date d'installation</label>
+                                                    <input type="date" class="form-control" name="state">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Date de Creation</label>
+                                                    <input type="date" class="form-control" name="installationDate">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Nombre de papier</label>
+                                                    <input type="text" class="form-control" name="paperSum">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">currentA4Black</label>
+                                                    <input type="text" class="form-control" name="currentA4Black">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">currentA4Color</label>
+                                                    <input type="text" class="form-control" name="currentA4Color">
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating">currentA3Black</label>
+                                                        <input type="text" class="form-control" name="currentA3Black">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating">currentA3Color</label>
+                                                        <input type="text" class="form-control" name="currentA3Color">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percBlack</label>
+                                                        <input type="text" class="form-control" name="percBlack">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percCyan</label>
+                                                        <input type="text" class="form-control" name="percCyan">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percMagenta</label>
+                                                        <input type="text" class="form-control" name="percMagenta">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percYellow</label>
+                                                        <input type="text" class="form-control" name="percYellow">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percCyanDrum</label>
+                                                        <input type="text" class="form-control" name="percCyanDrum">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percMagentaDrum</label>
+                                                        <input type="text" class="form-control" name="percMagentaDrum">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percYellowDrum</label>
+                                                        <input type="text" class="form-control" name="percYellowDrum">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary pull-right">Edit Printer</button>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
