@@ -80,16 +80,52 @@ exports.addFactureForm = (req, res) => {
     res.render("addFactureClient", { id: req.params.id });
 };
 exports.addFacture = (req, res) => {
+    Client.update({_id:req.params.id},{
+        $push:{
+            facture:[{
+            _id: mongoose.Types.ObjectId(),
+            date: req.body.date,
+            total: req.body.total,
+            file: req.body.file,
+            }]
+        }
+    }).then((result)=>{
+        res.redirect("/client/facture/show/"+req.params.facture_id);
+    }).catch((error) => {
+        return res.status(500).json({ error: error.message });
+    });
 };
 
 exports.editFactureForm = (req, res) => {
     res.render("editFactureClient", { id: req.params.id, facture_id: req.params.facture_id });
 };
 exports.editFacture = (req, res) => {
+    Client.update({ _id: req.params._id, "facture._id": req.body.facture_id },
+        {
+            $set: {
+                "facture.$.date": req.body.date,
+                "facture.$.total": req.body.total,
+                "facture.$.file": req.body.file,
+            }
+        }
+    ).then((result)=>{
+        res.redirect("/client/facture/show/"+req.params.facture_id);
+    }).catch((error) => {
+        return res.status(500).json({ error: error.message });
+    });
 
 };
 
 exports.removeFacture = (req, res) => {
+    Client.update({_id:req.params.id},{
+        $pull : {
+            facture: { _id: req.params.facture_id }
+        }
+    }).then((result)=>{
+        res.redirect("/client/facture/show/"+req.params.facture_id);
+    }).catch((error) => {
+        return res.status(500).json({ error: error.message });
+    });
 };
 
 /* Printer functions */
