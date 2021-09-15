@@ -29,8 +29,6 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="/stylesheets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/stylesheets/demo/demo.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body class="">
@@ -77,80 +75,95 @@ The above copyright notice and this permission notice shall be included in all c
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-primary pull-center"
-                                href="/client/printer/show/<%=clients._id%>">Printers</a>
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Facture Table</h4>
-                                    <p class="card-category"> Here is a subtitle for this table</p>
+                                    <h4 class="card-title">Add Printer</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead class=" text-primary">
-                                                <th>
-                                                    Date
-                                                </th>
-                                                <th>
-                                                    Total
-                                                </th>
-                                                <th>
-                                                    File
-                                                </th>
-                                                <th>
-
-                                                </th>
-                                            </thead>
-                                            <tbody>
-                                                <% clients.facture.forEach(function(fac){ %>
-                                                    <tr>
-                                                        <!-- printers goes here -->
-                                                        <td>
-                                                            <%=fac.date%>
-                                                        </td>
-                                                        <td>
-                                                            <%=fac.total%>
-                                                        </td>
-                                                        <td>
-                                                            <%=fac.file%>
-                                                        </td>
-                                                        <td class="td-actions text-right">
-                                                            <!-- add path to the edit here -->
-                                                            <!--button edit-->
-                                                            <form
-                                                                action="/client/facture/edit/<%=clients._id%>/<%=fac._id%>"
-                                                                method="GET">
-                                                                <button rel="tooltip" title=""
-                                                                    class="btn btn-primary btn-link btn-sm"
-                                                                    data-original-title="Edit"
-                                                                    aria-describedby="tooltip492411">
-                                                                    <i class="material-icons">edit</i>
-                                                                    <div class="ripple-container"></div>
-                                                                </button>
-                                                            </form>
-
-                                                            <!--button delete-->
-                                                            <form
-                                                                action="/client/facture/remove/<%=clients._id%>/<%=fac._id%>?_method=DELETE"
-                                                                method="POST">
-                                                                <button rel="tooltip" title=""
-                                                                    class="btn btn-danger btn-link btn-sm"
-                                                                    data-original-title="Remove"
-                                                                    aria-describedby="tooltip393368">
-                                                                    <i class="material-icons">close</i>
-                                                                </button>
-                                                            </form>
-
-                                                        </td>
-
-                                                    </tr>
-                                                    <% }); %>
-                                            </tbody>
-                                        </table>
-                                        <a href="/client/facture/add/<%=clients._id %>">
-                                            <i class="fas fa-plus-circle" style="font-size:350%;color: blueviolet;"></i>
-                                        </a>
-                                    </div>
+                                    <form action="/client/facture/edit/<%=id %>/<%=printer_id %>" method="POST">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">N°Série</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">N°Article</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@IP</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Location</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Etat</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Date d'installation</label>
+                                                    <input type="date" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Date de Creation</label>
+                                                    <input type="date" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Nombre de papier</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">currentA4Black</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">currentA4Color</label>
+                                                    <input type="text" class="form-control">
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating">currentA3Black</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating">currentA3Color</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percBlack</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percCyan</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percMagenta</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percYellow</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percCyanDrum</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percMagentaDrum</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating"> percYellowDrum</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary pull-right">Add Printer</button>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
