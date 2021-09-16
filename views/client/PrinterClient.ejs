@@ -109,7 +109,41 @@ The above copyright notice and this permission notice shall be included in all c
                                                     Date d'installation
                                                 </th>
                                                 <th>
+                                                    Date de Creation
+                                                </th>
 
+                                                <th>
+                                                    currentA4Black
+                                                </th>
+                                                <th>
+                                                    currentA4Color
+                                                </th>
+                                                <th>
+                                                    currentA3Black
+                                                </th>
+                                                <th>
+                                                    currentA3Color
+                                                </th>
+                                                <th>
+                                                    percBlack
+                                                </th>
+                                                <th>
+                                                    percCyan
+                                                </th>
+                                                <th>
+                                                    percMagenta
+                                                </th>
+                                                <th>
+                                                    percYellow
+                                                </th>
+                                                <th>
+                                                    percCyanDrum
+                                                </th>
+                                                <th>
+                                                    percMagentaDrum
+                                                </th>
+                                                <th>
+                                                    percYellowDrum
                                                 </th>
 
                                             </thead>
@@ -126,19 +160,19 @@ The above copyright notice and this permission notice shall be included in all c
                                                             <%=printer.articleNumber%>
                                                         </td>
                                                         <td>
-                                                            <%=printer.ip %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.location %>
-                                                        </td>
-                                                        <td>
                                                             <%=printer.state %>
+                                                        </td>
+                                                        <td>
+                                                            <%=printer.paperSum %>
+                                                        </td>
+                                                        <td>
+                                                            <%=printer.ip %>
                                                         </td>
                                                         <td>
                                                             <%=printer.installationDate %>
                                                         </td>
                                                         <td>
-                                                            <%=printer.paperSum %>
+                                                            <%=printer.creationDate %>
                                                         </td>
                                                         <td>
                                                             <%=printer.currentA4Black %>
@@ -159,23 +193,24 @@ The above copyright notice and this permission notice shall be included in all c
                                                             <%=printer.percBlack %>
                                                         </td>
                                                         <td>
+                                                            <%=printer.percCyan %>
+                                                        </td>
+                                                        <td>
                                                             <%=printer.percMagenta %>
                                                         </td>
                                                         <td>
                                                             <%=printer.percYellow %>
                                                         </td>
                                                         <td>
-                                                            <%=printer.percBlackDrum %>
-                                                        </td>
-                                                        <td>
                                                             <%=printer.percCyanDrum %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percYellowDrum %>
                                                         </td>
                                                         <td>
                                                             <%=printer.percMagentaDrum %>
                                                         </td>
+                                                        <td>
+                                                            <%=printer.percYellowDrum %>
+                                                        </td>
+
                                                         <td class="td-actions text-right">
 
                                                             <!-- add path to the edit here -->

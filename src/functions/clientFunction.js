@@ -111,7 +111,7 @@ exports.editFactureForm = (req, res) => {
 
     }).catch(error => {
         return res.status(500).json({ error: error.message });
-    })
+    });
 };
 exports.editFacture = (req, res) => {
 
@@ -194,8 +194,17 @@ exports.addPrinter = (req, res) => {
 
 };
 exports.editPrinterForm = (req, res) => {
+    Client.findById(req.params.id).then((client) => {
+        var printer = client.printer.filter(printer => printer._id == req.params.printer_id);
+        printer = printer[0];
+        console.log(printer);
 
-    res.render("client/editPrinterClient", { id: req.params.id, printer_id: req.params.printer_id });
+        res.render("client/editPrinterClient", { client, printer });
+
+    }).catch(error => {
+        return res.status(500).json({ error: error.message });
+    });
+
 };
 
 exports.editPrinter = (req, res) => {

@@ -80,84 +80,109 @@ The above copyright notice and this permission notice shall be included in all c
                                     <h4 class="card-title">Edit Printer</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/client/printer/edit/<%=id %>/<%=printer_id %>?_method=PATCH"
+                                    <form action="/client/printer/edit/<%=client._id %>/<%=printer._id %>?_method=PATCH"
                                         method="POST">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">N°Série</label>
-                                                    <input type="text" class="form-control" name="idPrinter">
+                                                    <input type="text" class="form-control" name="idPrinter"
+                                                        value="<%=printer.idPrinter%>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">N°Article</label>
-                                                    <input type="text" class="form-control" name="serialNumber">
+                                                    <input type="text" class="form-control" name="serialNumber"
+                                                        value="<%=printer.serialNumber%>">
                                                 </div>
                                                 <div class="form-group">
+                                                    <label class="bmd-label-floating">N°Article</label>
+                                                    <input type="text" class="form-control" name="articleNumber"
+                                                        value="<%=printer.articleNumber%>">
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label class="bmd-label-floating">@IP</label>
-                                                    <input type="text" class="form-control" name="articleNumber">
+                                                    <input type="text" class="form-control" name="ip"
+                                                        value="<%=printer.ip%>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Location</label>
-                                                    <input type="text" class="form-control" name="ip">
+                                                    <input type="text" class="form-control" name="location"
+                                                        value="<%=printer.location%>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Etat</label>
-                                                    <input type="text" class="form-control" name="location">
+                                                    <input type="text" class="form-control" name="state"
+                                                        value="<%=printer.state%>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Date d'installation</label>
-                                                    <input type="date" class="form-control" name="state">
+                                                    <input type="date" class="form-control" name="installationDate"
+                                                        value="<%=printer.installationDate%>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Date de Creation</label>
-                                                    <input type="date" class="form-control" name="installationDate">
+                                                    <input type="date" class="form-control" name="creationDate"
+                                                        value="<%=printer.creationDate%>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Nombre de papier</label>
-                                                    <input type="text" class="form-control" name="paperSum">
+                                                    <input type="text" class="form-control" name="paperSum"
+                                                        value="<%=printer.paperSum%>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">currentA4Black</label>
-                                                    <input type="text" class="form-control" name="currentA4Black">
+                                                    <input type="text" class="form-control" name="currentA4Black"
+                                                        value="<%=printer.currentA4Black%>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">currentA4Color</label>
-                                                    <input type="text" class="form-control" name="currentA4Color">
+                                                    <input type="text" class="form-control" name="currentA4Color"
+                                                        value="<%=printer.currentA4Color%>">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">currentA3Black</label>
-                                                        <input type="text" class="form-control" name="currentA3Black">
+                                                        <input type="text" class="form-control" name="currentA3Black"
+                                                            value="<%=printer.currentA3Black%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">currentA3Color</label>
-                                                        <input type="text" class="form-control" name="currentA3Color">
+                                                        <input type="text" class="form-control" name="currentA3Color"
+                                                            value="<%=printer.currentA3Color%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percBlack</label>
-                                                        <input type="text" class="form-control" name="percBlack">
+                                                        <input type="text" class="form-control" name="percBlack"
+                                                            value="<%=printer.percBlack%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percCyan</label>
-                                                        <input type="text" class="form-control" name="percCyan">
+                                                        <input type="text" class="form-control" name="percCyan"
+                                                            value="<%=printer.percCyan%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percMagenta</label>
-                                                        <input type="text" class="form-control" name="percMagenta">
+                                                        <input type="text" class="form-control" name="percMagenta"
+                                                            value="<%=printer.percMagenta%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percYellow</label>
-                                                        <input type="text" class="form-control" name="percYellow">
+                                                        <input type="text" class="form-control" name="percYellow"
+                                                            value="<%=printer.percYellow%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percCyanDrum</label>
-                                                        <input type="text" class="form-control" name="percCyanDrum">
+                                                        <input type="text" class="form-control" name="percCyanDrum"
+                                                            value="<%=printer.percCyanDrum%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percMagentaDrum</label>
-                                                        <input type="text" class="form-control" name="percMagentaDrum">
+                                                        <input type="text" class="form-control" name="percMagentaDrum"
+                                                            value="<%=printer.percMagentaDrum%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating"> percYellowDrum</label>
-                                                        <input type="text" class="form-control" name="percYellowDrum">
+                                                        <input type="text" class="form-control" name="percYellowDrum"
+                                                            value="<%=printer.percYellowDrum%>">
                                                     </div>
                                                 </div>
                                             </div>
