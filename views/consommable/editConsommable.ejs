@@ -79,46 +79,47 @@ The above copyright notice and this permission notice shall be included in all c
                   <h4 class="card-title">Edit Consommable</h4>
                 </div>
                 <div class="card-body">
-                  <form method="POST" action="/consommable/edit/<%=id%>?_method=PATCH">
+                  <form method="POST" action="/consommable/edit/<%=consommable.id%>?_method=PATCH">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">N°Article</label>
-                          <input type="text" class="form-control" name="articleNumber">
+                          <input type="text" class="form-control" name="articleNumber"
+                            value="<%=consommable.articleNumber%>">
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Type</label>
-                          <input type="text" class="form-control" name="type">
+                          <input type="text" class="form-control" name="type" value="<%=consommable.type%>">
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Type de Couleur</label>
-                          <input type="text" class="form-control" name="colorType">
+                          <input type="text" class="form-control" name="colorType" value="<%=consommable.colorType%>">
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Pages</label>
-                          <input type="text" class="form-control" name="pageSum">
+                          <input type="text" class="form-control" name="pageSum" value="<%=consommable.pageSum%>">
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Pourcentage</label>
-                          <input type="text" class="form-control" name="percent">
+                          <input type="text" class="form-control" name="percent" value="<%=consommable.percent%>">
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Message</label>
-                          <input type="text" class="form-control" name="message">
+                          <input type="text" class="form-control" name="message" value="<%=consommable.message%>">
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary pull-right">Add
+                    <button type="submit" class="btn btn-primary pull-right">Edit
                       Consommable</button>
                     <div class="clearfix"></div>
                   </form>

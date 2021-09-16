@@ -7,16 +7,21 @@ const Consommable = require("../models/consommable");
 
 exports.show = (req, res) => {
     Consommable.find({}).then((consommables) => {
-        res.render("Consommable", { consommables: consommables });
+        res.render("consommable/Consommable", { consommables: consommables });
     }).catch((error) => {
         return res.status(500).json({ message: error.message });
     })
 };
 exports.addForm = (req, res) => {
-    res.render("addConsommable");
+    res.render("consommable/addConsommable");
 }
 exports.editForm = (req, res) => {
-    res.render("editConsommable", { id: req.params.id });
+    Consommable.findById(req.params.id).then((consommable) => {
+        res.render("consommable/editConsommable", { consommable });
+    }).catch(error => {
+        res.status(500).json(error);
+    })
+
 }
 exports.add = (req, res) => {
     const consommable = new Consommable({

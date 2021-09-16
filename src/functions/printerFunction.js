@@ -8,17 +8,22 @@ const Printer = require("../models/printer");
 
 exports.show = (req, res) => {
     Printer.find({}).then((printers) => {
-        res.render('Printers', { printers: printers });
+        res.render('printer/Printers', { printers: printers });
     }).catch((error) => {
         return res.status(500).json({ message: error.message });
     })
 };
 exports.addForm = (req, res) => {
-    res.render('addPrinter');
+    res.render('printer/addPrinter');
 
 };
 exports.editForm = (req, res) => {
-    res.render('editPrinter', { id: req.params.id });
+    Printer.findById(req.params.id).then((printer) => {
+        res.render('printer/editPrinter', { printer });
+    }).catch((error) => {
+        res.status(500).json(error);
+    })
+
 
 };
 exports.add = (req, res) => {

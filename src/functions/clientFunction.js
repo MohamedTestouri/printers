@@ -8,16 +8,16 @@ const Client = require("../models/client");
 /* Client functions */
 exports.showClient = (req, res) => {
     Client.find({}).then((clients) => {
-        res.render("Client", { clients });
+        res.render("client/Client", { clients });
     }).catch((error) => {
         return res.status(500).json(error);
     });
 };
 exports.addForm = (req, res) => {
-    res.render("addClient");
+    res.render("client/addClient");
 };
 exports.editForm = (req, res) => {
-    res.render("editClient", { id: req.params.id });
+    res.render("client/editClient", { id: req.params.id });
 };
 
 exports.addClient = (req, res) => {
@@ -69,7 +69,7 @@ exports.removeClient = (req, res) => {
 exports.showFacture = (req, res) => {
     Client.find({ _id: req.params.id }).then((client) => {
         const clients = client[0];
-        res.render("FactureClient", { clients });
+        res.render("client/FactureClient", { clients });
     }).catch((error) => {
         return res.status(500).json({ error: error.message });
     });
@@ -77,7 +77,7 @@ exports.showFacture = (req, res) => {
 
 };
 exports.addFactureForm = (req, res) => {
-    res.render("addFactureClient", { id: req.params.id });
+    res.render("client/addFactureClient", { id: req.params.id });
 };
 exports.addFacture = (req, res) => {
     Client.update({ _id: req.params.id }, {
@@ -98,7 +98,7 @@ exports.addFacture = (req, res) => {
 };
 
 exports.editFactureForm = (req, res) => {
-    res.render("editFactureClient", { id: req.params.id, facture_id: req.params.facture_id });
+    res.render("client/editFactureClient", { id: req.params.id, facture_id: req.params.facture_id });
 };
 exports.editFacture = (req, res) => {
 
@@ -134,13 +134,13 @@ exports.removeFacture = (req, res) => {
 exports.showPrinter = (req, res) => {
     Client.find({ _id: req.params.id }).then((client) => {
         const clients = client[0];
-        res.render("PrinterClient", { clients });
+        res.render("client/PrinterClient", { clients });
     }).catch((error) => {
         return res.status(500).json({ error: error.message });
     });
 };
 exports.addPrinterForm = (req, res) => {
-    res.render("addPrinterClient", { id: req.params.id });
+    res.render("client/addPrinterClient", { id: req.params.id });
 };
 
 exports.addPrinter = (req, res) => {
@@ -181,7 +181,8 @@ exports.addPrinter = (req, res) => {
 
 };
 exports.editPrinterForm = (req, res) => {
-    res.render("editPrinterClient", { id: req.params.id, printer_id: req.params.printer_id });
+
+    res.render("client/editPrinterClient", { id: req.params.id, printer_id: req.params.printer_id });
 };
 
 exports.editPrinter = (req, res) => {
