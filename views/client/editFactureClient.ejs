@@ -80,25 +80,28 @@ The above copyright notice and this permission notice shall be included in all c
                                     <h4 class="card-title">Edit Facture</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/client/facture/edit/<%=id%>/<%=facture_id%>?_method=PATCH"
+                                    <form action="/client/facture/edit/<%=client._id%>/<%=facture._id%>?_method=PATCH"
                                         method="POST">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Total</label>
-                                                    <input type="text" class="form-control" name="total">
+                                                    <input type="text" class="form-control" name="total"
+                                                        value="<%=facture.total%>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Date</label>
-                                                    <input type="date" class="form-control" name="date">
+                                                    <input type="date" class="form-control" name="date"
+                                                        value="<%=facture.date%>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">File</label>
-                                                    <input type="file" class="form-control" name="file">
+                                                    <input type="file" class="form-control" name="file"
+                                                        value="<%=facture.file%>">
                                                 </div>
                                             </div>
                                         </div>

@@ -79,54 +79,61 @@ The above copyright notice and this permission notice shall be included in all c
                                     <h4 class="card-title">edit Client</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form method="POST" action="/client/edit/<%=id%>?_method=PATCH">
+                                    <form method="POST" action="/client/edit/<%=client.id%>?_method=PATCH">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">name</label>
-                                                    <input type="text" class="form-control" name="name">
+                                                    <input type="text" class="form-control" name="name"
+                                                        value="<%=client.name%>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Date de contrat</label>
-                                                    <input type="Date" class="form-control" name="contractDate">
+                                                    <input type="Date" class="form-control" name="contractDate"
+                                                        value="<%=client.contractDate%>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Durée de contrat</label>
-                                                    <input type="text" class="form-control" name="contractDuration">
+                                                    <input type="text" class="form-control" name="contractDuration"
+                                                        value="<%=client.contractDuration%>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">costA4Black</label>
-                                                    <input type="text" class="form-control" name="costA4Black">
+                                                    <input type="text" class="form-control" name="costA4Black"
+                                                        value="<%=client.costA4Black%>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">costA4Color</label>
-                                                    <input type="text" class="form-control" name="costA4Color">
+                                                    <input type="text" class="form-control" name="costA4Color"
+                                                        value="<%=client.costA4Color%>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">costA3Black</label>
-                                                    <input type="text" class="form-control" name="costA3Black">
+                                                    <input type="text" class="form-control" name="costA3Black"
+                                                        value="<%=client.costA3Black%>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">costA3Color</label>
-                                                    <input type="text" class="form-control" name="costA3Color">
+                                                    <input type="text" class="form-control" name="costA3Color"
+                                                        value="<%=client.costA3Color%>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">min_billing</label>
-                                                    <input type="text" class="form-control" name="min_billing">
+                                                    <input type="text" class="form-control" name="min_billing" value="<%=client.min_billing%>">
                                                 </div>
                                             </div>
                                         </div>

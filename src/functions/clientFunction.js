@@ -1,4 +1,3 @@
-
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -17,7 +16,12 @@ exports.addForm = (req, res) => {
     res.render("client/addClient");
 };
 exports.editForm = (req, res) => {
-    res.render("client/editClient", { id: req.params.id });
+    Client.findById(req.params.id).then((client) => {
+        res.render("client/editClient", { client });
+    }).catch((error) => {
+        res.status(500).json(error);
+    });
+
 };
 
 exports.addClient = (req, res) => {
@@ -98,11 +102,20 @@ exports.addFacture = (req, res) => {
 };
 
 exports.editFactureForm = (req, res) => {
-    res.render("client/editFactureClient", { id: req.params.id, facture_id: req.params.facture_id });
+    Client.findById(req.params.id).then((client) => {
+        var facture = client.facture.filter(fact => fact._id == req.params.facture_id);
+        facture = facture[0];
+        console.log(facture);
+
+        res.render("client/editFactureClient", { client, facture });
+
+    }).catch(error => {
+        return res.status(500).json({ error: error.message });
+    })
 };
 exports.editFacture = (req, res) => {
 
-    Client.update({ _id: req.params.id, "facture._id": req.body.facture_id },
+    Client.update({ _id: req.params.id, "facture._id": req.params.facture_id },
         {
             $set: {
                 "facture.$.date": req.body.date,
