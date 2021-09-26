@@ -68,7 +68,7 @@ The above copyright notice and this permission notice shall be included in all c
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="javascript:;">Show Client</a>
+                        <a class="navbar-brand" href="javascript:;"><h2>Client Name</h2></a>
                     </div>
                 </div>
             </nav>
@@ -76,9 +76,69 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-black card-header-icon">
+                                    <div class="card-icon">
+                                        <i class="material-icons">opacity</i>
+                                    </div>
+                                    <p class="card-category">A4 - Black</p>
+                                    <h3 class="card-title">costA4Black <!-- costA4Black -->
+                                    </h3>
+                                </div>
+                               <br/>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-rainbow card-header-icon">
+                                    <div class="card-icon">
+                                        <i class="material-icons">opacity</i>
+                                    </div>
+                                    <p class="card-category">A4 - Color</p>
+                                    <h3 class="card-title">costA4Color <!-- costA4Color -->
+                                    </h3>
+                                </div>
+                                <br/>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-black card-header-icon">
+                                    <div class="card-icon" >
+                                        <i class="material-icons">opacity</i>
+                                    </div>
+                                    <p class="card-category">A3 - Black</p>
+                                    <h3 class="card-title">costA3Black <!-- costA3Black -->
+                                    </h3>
+                                </div>
+                                <br/>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-rainbow card-header-icon">
+                                    <div class="card-icon" >
+                                        <i class="material-icons">opacity</i>
+                                    </div>
+                                    <p class="card-category">A3 - Color</p>
+                                    <h3 class="card-title">costA3Color <!-- costA3Color -->
+                                    </h3>
+                                </div>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
                         <div class="col-md-12">
-                            <a class="btn btn-primary pull-center"
-                                href="/client/facture/show/<%=clients._id%>">Factures</a>
+                            <a href="/client/printer/add/<%=clients._id %>" class="btn btn-primary pull-right">
+                                <i class="material-icons" data-notify="icon">add</i>
+                                Add Printer
+                                <div class="ripple-container"></div>
+                            </a>
+                            <br/>
+                            <br/>
                             <div class="card">
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title ">Printers Table</h4>
@@ -106,44 +166,7 @@ The above copyright notice and this permission notice shall be included in all c
                                                 </th>
                                                 <th>@IP</th>
                                                 <th>
-                                                    Date d'installation
-                                                </th>
-                                                <th>
-                                                    Date de Creation
-                                                </th>
-
-                                                <th>
-                                                    currentA4Black
-                                                </th>
-                                                <th>
-                                                    currentA4Color
-                                                </th>
-                                                <th>
-                                                    currentA3Black
-                                                </th>
-                                                <th>
-                                                    currentA3Color
-                                                </th>
-                                                <th>
-                                                    percBlack
-                                                </th>
-                                                <th>
-                                                    percCyan
-                                                </th>
-                                                <th>
-                                                    percMagenta
-                                                </th>
-                                                <th>
-                                                    percYellow
-                                                </th>
-                                                <th>
-                                                    percCyanDrum
-                                                </th>
-                                                <th>
-                                                    percMagentaDrum
-                                                </th>
-                                                <th>
-                                                    percYellowDrum
+                                                  Action
                                                 </th>
 
                                             </thead>
@@ -168,61 +191,20 @@ The above copyright notice and this permission notice shall be included in all c
                                                         <td>
                                                             <%=printer.ip %>
                                                         </td>
-                                                        <td>
-                                                            <%=printer.installationDate %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.creationDate %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.currentA4Black %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.currentA4Color %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.currentA3Black %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.currentA3Color %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.creationDate %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percBlack %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percCyan %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percMagenta %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percYellow %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percCyanDrum %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percMagentaDrum %>
-                                                        </td>
-                                                        <td>
-                                                            <%=printer.percYellowDrum %>
-                                                        </td>
+
 
                                                         <td class="td-actions text-right">
-
-                                                            <!-- add path to the edit here -->
-                                                            <!--button edit-->
+                                                            <div class="row">
+                                                            <!--button Show-->
+                                                            <!--change it to show -->
                                                             <form
-                                                                action="/client/printer/edit/<%=clients._id%>/<%=printer._id%>"
+                                                                action="/client/printer/show/<%=clients._id%>/<%=printer._id%>"
                                                                 method="GET">
                                                                 <button rel="tooltip" title=""
-                                                                    class="btn btn-primary btn-link btn-sm"
-                                                                    data-original-title="Edit"
-                                                                    aria-describedby="tooltip492411">
-                                                                    <i class="material-icons">edit</i>
+                                                                        class="btn btn-primary btn-link btn-sm"
+                                                                        data-original-title="Show"
+                                                                        aria-describedby="tooltip393368">
+                                                                    <i class="material-icons">format_list_bulleted</i>
                                                                     <div class="ripple-container"></div>
                                                                 </button>
                                                             </form>
@@ -238,17 +220,12 @@ The above copyright notice and this permission notice shall be included in all c
                                                                     <i class="material-icons">close</i>
                                                                 </button>
                                                             </form>
-
+                                                            </div>
                                                         </td>
-
                                                     </tr>
                                                     <% }); %>
                                             </tbody>
-
                                         </table>
-                                        <a href="/client/printer/add/<%=clients._id %>">
-                                            <i class="fas fa-plus-circle" style="font-size:350%;color: blueviolet;"></i>
-                                        </a>
                                     </div>
                                 </div>
                             </div>

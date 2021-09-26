@@ -39,6 +39,15 @@ const clientSchema = mongoose.Schema({
         percCyanDrum: {type: String},
         percYellowDrum: {type: String},
         percMagentaDrum: {type: String},
+        consommable: [{
+            _id: mongoose.Schema.Types.ObjectId,
+            articleNumber: {type: String},
+            type: {type: String},
+            colorType: {type: String},
+            pageSum: {type: Number},
+            percent: {type: String},
+            message: {type: String},
+        }]
     }],
 });
 

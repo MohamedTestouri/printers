@@ -7,7 +7,7 @@ const Client = require("../models/client");
 /* Client functions */
 exports.showClient = (req, res) => {
     Client.find({}).then((clients) => {
-        res.render("client/Client", { clients });
+        res.render("client/Client", {clients});
     }).catch((error) => {
         return res.status(500).json(error);
     });
@@ -17,7 +17,7 @@ exports.addForm = (req, res) => {
 };
 exports.editForm = (req, res) => {
     Client.findById(req.params.id).then((client) => {
-        res.render("client/editClient", { client });
+        res.render("client/editClient", {client});
     }).catch((error) => {
         res.status(500).json(error);
     });
@@ -39,7 +39,7 @@ exports.addClient = (req, res) => {
     client.save().then((result) => {
         res.redirect("/client/show");
     }).catch((error) => {
-        return res.status(error.code).json({ error: error.message });
+        return res.status(error.code).json({error: error.message});
     });
 };
 
@@ -71,20 +71,20 @@ exports.removeClient = (req, res) => {
 
 /* Facture functions */
 exports.showFacture = (req, res) => {
-    Client.find({ _id: req.params.id }).then((client) => {
+    Client.find({_id: req.params.id}).then((client) => {
         const clients = client[0];
-        res.render("client/FactureClient", { clients });
+        res.render("client/FactureClient", {clients});
     }).catch((error) => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
     });
 
 
 };
 exports.addFactureForm = (req, res) => {
-    res.render("client/addFactureClient", { id: req.params.id });
+    res.render("client/addFactureClient", {id: req.params.id});
 };
 exports.addFacture = (req, res) => {
-    Client.update({ _id: req.params.id }, {
+    Client.update({_id: req.params.id}, {
         $addToSet: {
             facture: [{
                 _id: mongoose.Types.ObjectId(),
@@ -97,7 +97,7 @@ exports.addFacture = (req, res) => {
 
         res.redirect('/client/show' + req.params.id);
     }).catch((error) => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
     });
 };
 
@@ -107,15 +107,15 @@ exports.editFactureForm = (req, res) => {
         facture = facture[0];
         console.log(facture);
 
-        res.render("client/editFactureClient", { client, facture });
+        res.render("client/editFactureClient", {client, facture});
 
     }).catch(error => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
     });
 };
 exports.editFacture = (req, res) => {
 
-    Client.update({ _id: req.params.id, "facture._id": req.params.facture_id },
+    Client.update({_id: req.params.id, "facture._id": req.params.facture_id},
         {
             $set: {
                 "facture.$.date": req.body.date,
@@ -126,38 +126,51 @@ exports.editFacture = (req, res) => {
     ).then((result) => {
         res.redirect("/client/facture/show/" + req.params.id);
     }).catch((error) => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
     });
 
 };
 
 exports.removeFacture = (req, res) => {
-    Client.update({ _id: req.params.id }, {
+    Client.update({_id: req.params.id}, {
         $pull: {
-            facture: { _id: req.params.facture_id }
+            facture: {_id: req.params.facture_id}
         }
     }).then((result) => {
         res.redirect("/client/facture/show/" + req.params.id);
     }).catch((error) => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
     });
 };
 
 /* Printer functions */
 exports.showPrinter = (req, res) => {
-    Client.find({ _id: req.params.id }).then((client) => {
+    Client.find({_id: req.params.id}).then((client) => {
         const clients = client[0];
-        res.render("client/PrinterClient", { clients });
+        res.render("client/PrinterClient", {clients});
     }).catch((error) => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
+    });
+};
+exports.showPrinterDetails = (req, res) => {
+    Client.find({_id: req.params.id}).then((clients) => {
+        const client = clients[0];
+        const printers = client.printer;
+        const printer = printers.find(e => {
+            e._id == req.params.printer_id;
+        });
+        console.log(printer);
+        res.render("client/PrinterClientDetails", {printer});
+    }).catch((error) => {
+        return res.status(500).json({error: error.message});
     });
 };
 exports.addPrinterForm = (req, res) => {
-    res.render("client/addPrinterClient", { id: req.params.id });
+    res.render("client/addPrinterClient", {id: req.params.id});
 };
 
 exports.addPrinter = (req, res) => {
-    Client.update({ _id: req.params.id }, {
+    Client.update({_id: req.params.id}, {
         $addToSet: {
             printer: [{
                 _id: mongoose.Types.ObjectId(),
@@ -188,7 +201,7 @@ exports.addPrinter = (req, res) => {
 
         res.redirect('/client/printer/show/' + req.params.id);
     }).catch((error) => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
     });
 
 
@@ -199,16 +212,16 @@ exports.editPrinterForm = (req, res) => {
         printer = printer[0];
         console.log(printer);
 
-        res.render("client/editPrinterClient", { client, printer });
+        res.render("client/editPrinterClient", {client, printer});
 
     }).catch(error => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
     });
 
 };
 
 exports.editPrinter = (req, res) => {
-    Client.update({ _id: req.params.id, "printer._id": req.params.printer_id },
+    Client.update({_id: req.params.id, "printer._id": req.params.printer_id},
         {
             $set: {
                 "printer.$.idPrinter": req.body.idPrinter,
@@ -237,19 +250,19 @@ exports.editPrinter = (req, res) => {
     ).then((result) => {
         res.redirect("/client/printer/show/" + req.params.id);
     }).catch((error) => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
     });
 };
 
 exports.removePrinter = (req, res) => {
-    Client.update({ _id: req.params.id }, {
+    Client.update({_id: req.params.id}, {
         $pull: {
-            printer: { _id: req.params.printer_id }
+            printer: {_id: req.params.printer_id}
         }
     }).then((result) => {
         res.redirect("/client/printer/show/" + req.params.id);
     }).catch((error) => {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({error: error.message});
     });
 };
 

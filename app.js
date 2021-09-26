@@ -20,11 +20,11 @@ app.use(express.static(__dirname + "/public"));
 
 
 /***** DATABASE CONNECTION *****/
-mongoose.connect("mongodb://localhost:27017/printer");
-// mongoose.connect(process.env.DATABASE, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
+//mongoose.connect("mongodb://localhost:27017/printer");
+ mongoose.connect(process.env.DATABASE, {
+     useNewUrlParser: true,
+     useUnifiedTopology: true
+ });
 
 /***** ROUTES IMPORT *****/
 const userRoutes = require('./src/routes/userRoutes');

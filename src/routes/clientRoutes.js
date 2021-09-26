@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { addClient, editClient, removeClient, showClient, addForm, editForm } = require('../functions/clientFunction');
 const { addFacture, editFacture, removeFacture, showFacture, addFactureForm, editFactureForm } = require('../functions/clientFunction');
-const { addPrinter, editPrinter, removePrinter, showPrinter, addPrinterForm, editPrinterForm } = require('../functions/clientFunction');
+const { addPrinter, editPrinter, removePrinter, showPrinter, addPrinterForm, editPrinterForm, showPrinterDetails } = require('../functions/clientFunction');
 
 /* Client CRUD */
 router.get('/show', showClient);
@@ -21,7 +21,9 @@ router.patch('/facture/edit/:id/:facture_id', editFacture);
 router.get('/facture/edit/:id/:facture_id', editFactureForm);
 router.delete('/facture/remove/:id/:facture_id', removeFacture);
 
+
 /* Printer CRUD */
+router.get('/printer/show/:id/:printer_id', showPrinterDetails);
 router.get('/printer/show/:id', showPrinter);
 router.get('/printer/add/:id', addPrinterForm);
 router.post('/printer/add/:id', addPrinter);
